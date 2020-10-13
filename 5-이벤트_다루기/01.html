@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Interactive Web</title>
+    <link rel="stylesheet" href="css/reset.css">
+    <style>
+        img {
+            max-width: 100%;
+            height: auto;
+        }
+
+        .characters {
+            display: flex;
+            align-items: center;
+            justify-content: space-around;
+            background: #fff000;
+        }
+
+        .ilbuni {
+            width: 100px;
+            cursor: pointer;
+        }
+
+        .characters .ilbuni {
+            display: inline-block;
+        }
+
+        .special {
+            border: 10px dashed red;
+        }
+    </style>
+    <script>
+        // window.addEventListener('load', function () {
+        // load는 이미지등 모든것을 로드했을떄, DOMContentLoaded는 DOM구조가 로드되었을때,
+        window.addEventListener('DOMContentLoaded', function () {
+            const ilbuniC = document.querySelector('.ilbuni:nth-child(3)');
+            // script를 위에 작성시 전역객체인 window에 기다려달라는 이벤트리스너를 달아준다.
+        })
+    </script>
+</head>
+
+<body>
+    <div class="characters">
+        <div class="ilbuni a">
+            <img src="images/ilbuni_0.png" alt="일분이">
+        </div>
+        <div class="ilbuni b">
+            <img src="images/ilbuni_1.png" alt="일분이">
+        </div>
+        <div class="ilbuni c">
+            <img src="images/ilbuni_2.png" alt="일분이">
+        </div>
+        <div class="ilbuni d">
+            <img src="images/ilbuni_3.png" alt="일분이">
+        </div>
+    </div>
+
+    <script>
+        // 전역변수없이 사용하는 방법
+        (function () {
+            // 전역변수 = 남발시 안좋음 => 전역변수를 최소화하자
+            const ilbuniC = document.querySelector('.ilbuni:nth-child(3)');
+            // 클릭이벤트
+            // ilbuniC.addEventListener('click', function () {
+            //     ilbuniC.classList.add('special');
+            // });
+
+            // 이것도 전역변수 왜??? const clickInbuniHandler = function(){} 도 가능
+            function clickInbuniHandler() {
+                ilbuniC.classList.toggle('special');
+            };
+            ilbuniC.addEventListener('click', clickInbuniHandler);
+
+        })(); // 바로 호출
+    </script>
+</body>
+
+</html>
