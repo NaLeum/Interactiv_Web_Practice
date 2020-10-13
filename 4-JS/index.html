@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Interactive Web</title>
+    <link rel="stylesheet" href="css/reset.css">
+    <style>
+        img {
+            max-width: 100%;
+            height: auto;
+        }
+
+        .characters {
+            display: flex;
+            align-items: center;
+            justify-content: space-around;
+            background: #fff000;
+        }
+
+        .ilbuni {
+            width: 100px;
+            cursor: pointer;
+        }
+
+        .characters .ilbuni {
+            display: inline-block;
+        }
+
+        .special {
+            border: 10px dashed red;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="characters">
+        <div class="ilbuni a">
+            <img src="images/ilbuni_0.png" alt="일분이">
+        </div>
+        <div class="ilbuni b">
+            <img src="images/ilbuni_1.png" alt="일분이">
+        </div>
+        <div class="ilbuni c">
+            <img src="images/ilbuni_2.png" alt="일분이">
+        </div>
+    </div>
+    <div class="ilbuni d">
+        <img src="images/ilbuni_3.png" alt="일분이">
+    </div>
+
+    <script>
+        // const ilbuni = document.querySelector('.a');
+        // document.querySelector('.ilbuni');
+        // querySelector는 기본적으로 여러개가 있어도 제일 앞의 1개만 가져온다.
+        // document.querySelectorAll('.ilbuni');
+        // NodeList라는 배열같은 것이 return된다.
+        const libuniGroup = document.querySelectorAll('.ilbuni');
+        console.log(libuniGroup);
+        console.log(libuniGroup[2]);
+
+        // data-로 시작하는 표준 커스텀 속성
+        // data-index, data-id, data-role등 data-형식으로 시작하면 어떤 속성이든 필요에 따라 임의로 추가할 수 있다.
+        const char = document.querySelector('.characters');
+        char.setAttribute('data-id', 123);
+        const charid = char.getAttribute('data-id');
+        console.log(charid)
+
+        // 새로 만들기
+        const pElem = document.createElement('p');
+        pElem.innerHTML = '<a herf="#">안녕하세요<a>';
+        // 끝에 붙이기
+        char.appendChild(pElem);
+        // 삭제
+        char.removeChild(document.querySelector('.b'));
+
+        const libuni = document.querySelector('.ilbuni');
+        libuni.classList.add('special');
+        //libuni.className='special' 기존에 있는 클래스를 유지하지 않고 special로 바꾼다
+
+        //libuni 클래스를 가지고 있으면 없애고, 없으면 만들어주고
+        libuni.classList.toggle('ilbuni');
+    </script>
+</body>
+
+</html>
