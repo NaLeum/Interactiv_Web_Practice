@@ -63,17 +63,23 @@
         // 전역변수없이 사용하는 방법
         (function () {
             // 전역변수 = 남발시 안좋음 => 전역변수를 최소화하자
-            const ilbuniC = document.querySelector('.ilbuni:nth-child(3)');
+            const characters = document.querySelector('.characters');
             // 클릭이벤트
             // ilbuniC.addEventListener('click', function () {
             //     ilbuniC.classList.add('special');
             // });
 
             // 이것도 전역변수 왜??? const clickInbuniHandler = function(){} 도 가능
-            function clickInbuniHandler() {
-                ilbuniC.classList.toggle('special');
+            function clickHandler(e) {
+                characters.classList.toggle('special');
+
+                console.log(this);
+                console.log(e);
+                console.log(e.currentTarget);
+                //this 나 currentTarget이나 내가 클릭한 걔가 아니라 이벤트가 등록되어있는 객체
+                console.log(e.target); // target은 내가 클릭한놈 
             };
-            ilbuniC.addEventListener('click', clickInbuniHandler);
+            characters.addEventListener('click', clickHandler);
 
         })(); // 바로 호출
     </script>
