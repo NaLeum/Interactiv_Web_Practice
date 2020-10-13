@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <style>
+        .world {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 80vw;
+            height: 80vh;
+            background: #fff000;
+            perspective: 500px;
+        }
+
+        .card {
+            position: relative;
+            width: 100px;
+            height: 150px;
+            margin: 1em;
+            transform: rotateY(0deg);
+            transition: 1s;
+
+            /* 인터넷익스플로어는 이 속성이 지원이 되지 않는다.*/
+            /* card컨테이너를 없애고 world안에서 card각각을 각각 뒤집어 버린다 */
+            transform-style: preserve-3d;
+            transform-origin: left;
+        }
+
+        .world:hover .card {
+            transform: rotateY(-120deg);
+        }
+
+        .card-side {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            border-radius: 0.5em;
+            font-size: 1.5rem;
+            position: absolute;
+            left: 50%;
+            top: 50%;
+            margin: -75px 0 0 -50px;
+            width: 100px;
+            height: 150px;
+            transition: 1s;
+
+            /* webkit 같은 접두어는 표준으로 지정되기 전의 스펙을 지원하기전에 사용한다. (실험용 기능) */
+            -webkit-backface-visibility: hidden;
+            /* 모질라 */
+            -moz-backface-visibility: hidden;
+            /* 오페라 */
+            -o-backface-visibility: hidden;
+
+            /* safari에서 이 속성을 지원을 하지만 -webkit-접두어가 필요함 */
+            /* 접두어가 붙은것들이 위에 밑에는 표준스타일로 왜냐면 밑에 있는 속성이 덮어써버리니까 */
+            backface-visibility: hidden;
+        }
+
+        .world:hover .card-side-front {
+            transform: rotateY(180deg);
+        }
+
+        .world:hover .card-side-back {
+            transform: rotateY(360deg);
+        }
+
+
+        .card-side-front {
+            z-index: 1;
+            background: white;
+        }
+
+        .card-side-back {
+            background: red;
+            transform: rotateY(180deg);
+        }
+    </style>
+
+</head>
+
+<body>
+    <!-- 브라우저별 대응 -->
+    <div class="world">
+        <!-- <div class="card"> -->
+        <div class="card-side card-side-front">F</div>
+        <div class="card-side card-side-back">B</div>
+        <!-- </div> -->
+
+    </div>
+</body>
+
+</html>

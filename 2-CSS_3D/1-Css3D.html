@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <style>
+        .world {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            /* 뷰포트단위 즉, 현재보이는 화면 기준 */
+            width: 80vw;
+            height: 80vh;
+            background: #fff000;
+
+            /* 3D효과내기 perspective 원근감!*/
+            /* 가까이 있을수록 3D효과가 극적으로 보인다 */
+            /* perspective: 500px; */
+        }
+
+        .card {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            width: 100px;
+            height: 150px;
+            margin: 1em;
+            /* em 현재 컨텍스트의 fontsize기준 */
+            border-radius: 0.5em;
+            /* rem html의 fontsize기준 */
+            font-size: 1.5rem;
+            background: red;
+            /* 자식요소에 perspective를 주면 똑같이 보인다 */
+            transform: perspective(500px) rotateY(45deg);
+
+        }
+    </style>
+
+</head>
+
+<body>
+    <div class="world">
+        <div class="card">CARD</div>
+        <div class="card">CARD</div>
+        <div class="card">CARD</div>
+
+    </div>
+</body>
+
+</html>

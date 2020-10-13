@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        html {
+            height: 100%;
+        }
+
+        body {
+            height: 100%;
+            background: #222;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        @keyframes spaceship-ani {
+
+            /* 0% : from, 100%: to 0%에 대해 변화 없을시 생략가능*/
+            to {
+                background-position: -2550px 0;
+            }
+        }
+
+        .spaceship {
+            /* 2배 크기로 이미지를 만든다음 사용할떄는 줄여서 사용하면 고해상도 디스플레이에서도 꺠지지 않는다 */
+            width: 150px;
+            height: 150px;
+            background: url('images/sprite_spaceship.png') no-repeat 0 0 / auto 150px;
+            animation: spaceship-ani 1.5s infinite steps(17);
+        }
+    </style>
+</head>
+
+<body>
+    <!-- Frame by Frame animation 은 장면을 만화처럼 그리듯이 나오는 애니메이션 -->
+    <!-- 사용하기 위해서는 sprite이미지를 사용해야 한다 -->
+    <div class="spaceship"></div>
+</body>
+
+</html>

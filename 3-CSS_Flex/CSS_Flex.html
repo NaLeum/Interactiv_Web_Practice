@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .container {
+            display: flex;
+            /* flex-direction: row; defalut값 */
+            /* flex-direction: column; */
+            /* 오뎅꼬치를 생각하면 row와 colum이 헷갈리지 않는다 */
+
+            /* flex-start, flex-end처럼 left right인 이유는 축이 바뀔 수 있기 때문이다. */
+            /* justify-content: center; */
+
+            /* justify-content 오뎅꼬치를 축위에서 자연스럽게 정렬 
+               align-items 오뎅꼬치 축의 수직방향으로 정렬한다 */
+            /* align-items: stretch; 기본값 쭉 늘어난다. */
+            /* align-items: center; */
+            height: 80vh;
+            background: gray;
+        }
+
+        .item {
+            /* width를 나눠 가지는것이 아니라, content를 제외한 여백을 동일하게 배분 */
+            /* flex-grow: 1; */
+
+            /* flex-grow에서 여백을 나눌떄 원래 content가 점유하는 영역을 어떻게 해줄것인가*/
+            /* flex-basis: 0; */
+
+            /* flex는 축약형 */
+            flex: 1;
+            /* padding: 2em; */
+            border: 3px solid black;
+            background: white;
+            font-size: 3rem;
+        }
+
+        /* .item:nth-child(1) {
+            flex-grow: 1;
+        }
+
+        .item:nth-child(2) {
+            flex-grow: 2;
+        }
+
+        .item:nth-child(3) {
+            flex-grow: 3;
+        }
+
+        .item:nth-child(4) {
+            flex-grow: 4;
+        }
+
+        .item:nth-child(5) {
+            flex-grow: 5;
+        } */
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <div class="item">AAA</div>
+        <div class="item">B</div>
+        <div class="item">CCCCC</div>
+        <div class="item">DDD</div>
+        <div class="item">EE</div>
+    </div>
+</body>
+
+</html>
